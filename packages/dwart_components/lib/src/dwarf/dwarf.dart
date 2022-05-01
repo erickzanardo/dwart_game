@@ -13,15 +13,17 @@ class Dwarf extends PositionComponent {
     HandGear leftHandGear = HandGear.none,
     BodyGear bodyGear = BodyGear.none,
     FaceGear faceGear = FaceGear.none,
+    HandTool? rightHandTool,
+    HandTool? leftHandTool,
   }) : super(
           position: position,
           size: Vector2(124.1, 154.2),
           anchor: Anchor.bottomCenter,
           children: [
-            DwarfHand.right(rightHandGear),
+            DwarfHand.right(rightHandGear, rightHandTool),
             DwarfBody(body: bodyGear),
             DwarfFace(face: faceGear),
-            DwarfHand.left(leftHandGear),
+            DwarfHand.left(leftHandGear, leftHandTool),
             DwarfHat(head: headGear),
           ],
         );

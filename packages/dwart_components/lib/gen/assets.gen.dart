@@ -22,10 +22,16 @@ class $AssetsImagesDwarfGen {
       const AssetGenImage('assets/images/dwarf/blacksmith_googles_face.png');
   AssetGenImage get body => const AssetGenImage('assets/images/dwarf/body.png');
   AssetGenImage get face => const AssetGenImage('assets/images/dwarf/face.png');
+  AssetGenImage get hammer =>
+      const AssetGenImage('assets/images/dwarf/hammer.png');
   AssetGenImage get hand => const AssetGenImage('assets/images/dwarf/hand.png');
   AssetGenImage get hat => const AssetGenImage('assets/images/dwarf/hat.png');
   AssetGenImage get minerHat =>
       const AssetGenImage('assets/images/dwarf/miner_hat.png');
+  AssetGenImage get pickaxe =>
+      const AssetGenImage('assets/images/dwarf/pickaxe.png');
+  AssetGenImage get tongs =>
+      const AssetGenImage('assets/images/dwarf/tongs.png');
 }
 
 class Assets {

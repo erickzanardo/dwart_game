@@ -37,7 +37,7 @@ extension FaceGearX on FaceGear {
 /// {@endtemplate}
 class DwarfFace extends SpriteComponent with HasGameRef {
   /// {@macro dwarf_face}
-  DwarfFace({ required FaceGear face}) : super(priority: 4) {
+  DwarfFace({required FaceGear face}) : super(priority: 4) {
     final data = face.toData();
     position = data.position;
     size = data.size;

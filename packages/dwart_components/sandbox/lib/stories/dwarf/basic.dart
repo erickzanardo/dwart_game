@@ -9,6 +9,8 @@ class BasicDwarfGame extends SandboxGame {
     required this.leftHandGear,
     required this.bodyGear,
     required this.faceGear,
+    this.leftHandTool,
+    this.rightHandTool,
   });
 
   static const info = '''
@@ -20,6 +22,8 @@ class BasicDwarfGame extends SandboxGame {
   HandGear rightHandGear;
   BodyGear bodyGear;
   FaceGear faceGear;
+  HandTool? leftHandTool;
+  HandTool? rightHandTool;
 
   @override
   Future<void> onLoad() async {
@@ -33,6 +37,8 @@ class BasicDwarfGame extends SandboxGame {
         leftHandGear: leftHandGear,
         bodyGear: bodyGear,
         faceGear: faceGear,
+        rightHandTool: rightHandTool,
+        leftHandTool: leftHandTool,
       ),
     );
   }

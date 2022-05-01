@@ -33,6 +33,16 @@ void addDwarfStories(Dashbook dashbook) {
               FaceGear.none,
               FaceGear.values,
             ),
+            rightHandTool: context.listProperty(
+              'rightHandTool',
+              null,
+              [null, ...HandTool.values],
+            ),
+            leftHandTool: context.listProperty(
+              'leftHandTool',
+              null,
+              [null, ...HandTool.values],
+            ),
           ),
         ),
         info: BasicDwarfGame.info,

@@ -9,6 +9,8 @@ class DwarfGear {
     required this.sprite,
     required this.position,
     required this.size,
+    this.anchor = Anchor.topLeft,
+    this.angle = 0,
   });
 
   /// Gear sprite
@@ -19,4 +21,10 @@ class DwarfGear {
 
   /// Gear size on the dwarf model
   final Vector2 size;
+
+  /// Anchor of the gear
+  final Anchor anchor;
+
+  /// Angle of the gear
+  final double angle;
 }
