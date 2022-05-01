@@ -1,6 +1,8 @@
 import 'package:dwart_components/dwart_components.dart';
 import 'package:dwart_components/gen/assets.gen.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
+import 'package:flutter/animation.dart';
 
 /// List of hand gears
 enum HandGear {
@@ -120,13 +122,23 @@ class DwarfHandGear extends SpriteComponent with HasGameRef {
   }
 }
 
+/// Enum indicating if the hand is a right or left one
+enum HandType {
+  /// Right
+  right,
+
+  /// Left
+  left,
+}
+
 /// {@template dwarf_hand}
 /// The hand of a [Dwarf]
 /// {@endtemplate}
 class DwarfHand extends PositionComponent with HasGameRef {
   /// {@macro dwarf_hand}
   DwarfHand.left(HandGear hand, [HandTool? tool])
-      : super(
+      : type = HandType.left,
+        super(
           position: Vector2(93.3, 73.3),
           priority: 0,
           children: [
@@ -137,7 +149,8 @@ class DwarfHand extends PositionComponent with HasGameRef {
 
   /// {@macro dwarf_hand}
   DwarfHand.right(HandGear hand, [HandTool? tool])
-      : super(
+      : type = HandType.right,
+        super(
           position: Vector2(22.3, 70.3),
           priority: 5,
           children: [
@@ -145,4 +158,31 @@ class DwarfHand extends PositionComponent with HasGameRef {
             DwarfHandGear(hand),
           ],
         );
+
+  /// Indicates if this is a right ow left hand
+  final HandType type;
+
+  /// Swings this hand
+  void swing() {
+    add(
+      SequenceEffect(
+        [
+          RotateEffect.to(
+            0.5,
+            EffectController(
+              duration: .4,
+              curve: Curves.easeOut,
+            ),
+          ),
+          RotateEffect.to(
+            0,
+            EffectController(
+              duration: .6,
+              curve: Curves.easeOut,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }

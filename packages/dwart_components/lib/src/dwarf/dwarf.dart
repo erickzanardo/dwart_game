@@ -27,4 +27,12 @@ class Dwarf extends PositionComponent {
             DwarfHat(head: headGear),
           ],
         );
+
+  /// Makes the dwarf swing its hand
+  void swingHand(HandType hand) {
+    children
+        .whereType<DwarfHand>()
+        .firstWhere((dwarfHand) => dwarfHand.type == hand)
+        .swing();
+  }
 }

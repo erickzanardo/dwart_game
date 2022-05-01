@@ -102,9 +102,11 @@ packages:
   dashbook:
     dependency: "direct main"
     description:
-      name: dashbook
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: "erick.actions"
+      resolved-ref: "2a28c0c0c681f2e5c76f4250ce6b8fe0adbe7872"
+      url: "git@github.com:bluefireteam/dashbook.git"
+    source: git
     version: "0.1.7"
   device_frame:
     dependency: transitive
