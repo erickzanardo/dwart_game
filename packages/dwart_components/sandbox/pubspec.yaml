@@ -1,0 +1,24 @@
+name: sandbox
+description: Sandbox for the Dwart components
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+
+dependencies:
+  bloc: ^8.0.3
+  dashbook: ^0.1.7
+  dwart_components:
+    path: ../
+  flame: ^1.1.1
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  bloc_test: ^9.0.3
+  very_good_analysis: ^2.4.0
+
+flutter:
+  uses-material-design: true
+  generate: true
