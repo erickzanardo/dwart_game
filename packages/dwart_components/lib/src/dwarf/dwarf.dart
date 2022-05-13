@@ -7,7 +7,7 @@ import 'package:flame/components.dart';
 class Dwarf extends PositionComponent {
   /// {@macro dwarf}
   Dwarf({
-    required Vector2 position,
+    Vector2? position,
     HeadGear headGear = HeadGear.basic,
     HandGear rightHandGear = HandGear.none,
     HandGear leftHandGear = HandGear.none,
@@ -18,7 +18,6 @@ class Dwarf extends PositionComponent {
   }) : super(
           position: position,
           size: Vector2(124.1, 154.2),
-          anchor: Anchor.bottomCenter,
           children: [
             DwarfHand.right(rightHandGear, rightHandTool),
             DwarfBody(body: bodyGear),

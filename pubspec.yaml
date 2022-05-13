@@ -8,6 +8,15 @@ environment:
 
 dependencies:
   bloc: ^8.0.3
+  dwart_components:
+    path: packages/dwart_components
+  flame:
+    git:
+      url: https://github.com/flame-engine/flame
+      path: packages/flame
+  flame_behaviors:
+    git:
+      url: git@github.com:VeryGoodOpenSource/flame_behaviors.git
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
@@ -25,3 +34,9 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+dependency_overrides:
+  flame:
+    git:
+      url: https://github.com/flame-engine/flame
+      path: packages/flame
