@@ -1,4 +1,4 @@
-name: dwart
+name: dwart_game
 description: Dwart game
 version: 1.0.0+1
 publish_to: none
@@ -8,8 +8,12 @@ environment:
 
 dependencies:
   bloc: ^8.0.3
+  dwart:
+    git:
+      url: git@github.com:erickzanardo/dwart.git
   dwart_components:
     path: packages/dwart_components
+  equatable: ^2.0.3
   flame:
     git:
       url: https://github.com/flame-engine/flame
@@ -17,6 +21,7 @@ dependencies:
   flame_behaviors:
     git:
       url: git@github.com:VeryGoodOpenSource/flame_behaviors.git
+  flame_bloc: 1.4.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1

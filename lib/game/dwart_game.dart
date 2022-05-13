@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:dwart/game/entities/entities.dart';
-import 'package:dwart/game/game.dart';
 import 'package:dwart_components/dwart_components.dart';
+import 'package:dwart_game/game/entities/entities.dart';
+import 'package:dwart_game/game/game.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
 

@@ -1,4 +1,4 @@
-import 'package:dwart/game/dwart_game.dart';
+import 'package:dwart_game/game/dwart_game.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
