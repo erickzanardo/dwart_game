@@ -21,7 +21,7 @@ class DwarfNameBadgeBehavior extends Behavior<DwarfEntity> {
             parent.add(
               DwarfNameBadge(
                 text: state.name,
-                position: Vector2(0, -80),
+                position: Vector2(parent.size.x / 2, -80),
               ),
             );
           } else {
