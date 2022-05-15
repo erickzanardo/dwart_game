@@ -5,4 +5,7 @@ export 'dwarf/dwarf_gear.dart';
 export 'dwarf/dwarf_hand.dart';
 export 'dwarf/dwarf_hat.dart';
 export 'dwarf/dwarf_name_badge.dart';
+export 'world/bridge.dart';
+export 'world/stairs.dart';
 export 'world/tile.dart';
+export 'world/walkable.dart';

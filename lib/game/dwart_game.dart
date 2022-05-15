@@ -18,10 +18,14 @@ class DwartGame extends FlameGame
 
     final world = World(
       map: [
-        [null, null, null, DwarfEntity(), null, null, null],
+        [null, null, null, null, null, null, null, null, null, null, null],
         [
-          null,
           Tile(),
+          Stairs(),
+          Tile(),
+          Tile(),
+          Bridge(),
+          Bridge(),
           Tile(),
           Tile(),
           Tile(),
@@ -29,6 +33,33 @@ class DwartGame extends FlameGame
           null,
         ],
         [
+          Tile(),
+          Stairs(),
+          Tile(),
+          Tile(),
+          Tile(),
+          Tile(),
+          Tile(),
+          Tile(),
+          Tile(),
+          Tile(),
+        ],
+        [
+          Tile(),
+          Stairs(),
+          null,
+          null,
+          null,
+          null,
+          Tile(),
+          Tile(),
+          Tile(),
+          Tile(),
+        ],
+        [
+          Tile(),
+          Tile(),
+          Tile(),
           Tile(),
           Tile(),
           Tile(),
@@ -41,6 +72,8 @@ class DwartGame extends FlameGame
     )..position = size / 2;
 
     await add(world);
+
+    world.addAt(5, 0, DwarfEntity());
 
     camera.zoom = 0.5;
   }
