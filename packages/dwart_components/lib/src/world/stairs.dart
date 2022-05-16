@@ -13,6 +13,7 @@ class Stairs extends RectangleComponent with Walkable {
           position: position,
           size: Vector2.all(Tile.tileSize + 2),
           paint: Paint()..color = Colors.brown,
+          anchor: Anchor.center,
         );
 
   @override

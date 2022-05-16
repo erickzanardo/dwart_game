@@ -76,20 +76,20 @@ class World extends PositionComponent {
                 path[pathY][pathX] = true;
 
                 // To testing
-                unawaited(
-                  add(
-                    RectangleComponent.square(
-                      position: (Vector2(
-                                pathX.toDouble(),
-                                pathY.toDouble(),
-                              ) *
-                              Tile.tileSize) +
-                          Vector2.all(Tile.tileSize / 2 - 10),
-                      paint: Paint()..color = Colors.yellow,
-                      size: 20,
-                    ),
-                  ),
-                );
+                //unawaited(
+                //  add(
+                //    RectangleComponent.square(
+                //      position: (Vector2(
+                //                pathX.toDouble(),
+                //                pathY.toDouble(),
+                //              ) *
+                //              Tile.tileSize) +
+                //          Vector2.all(Tile.tileSize / 2 - 10),
+                //      paint: Paint()..color = Colors.yellow,
+                //      size: 20,
+                //    ),
+                //  ),
+                //);
               }
             }
           }

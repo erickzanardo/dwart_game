@@ -12,6 +12,7 @@ class Bridge extends PositionComponent with Walkable {
   }) : super(
           position: position,
           size: Vector2.all(Tile.tileSize + 2),
+          anchor: Anchor.center,
           children: [
             RectangleComponent(
               position: Vector2.zero(),

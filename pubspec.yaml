@@ -7,6 +7,7 @@ environment:
   sdk: ">=2.16.0 <3.0.0"
 
 dependencies:
+  a_star_algorithm: ^0.2.1
   bloc: ^8.0.3
   dwart:
     git:

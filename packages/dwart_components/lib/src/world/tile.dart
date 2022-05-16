@@ -13,6 +13,7 @@ class Tile extends RectangleComponent with Walkable {
           position: position,
           size: Vector2.all(tileSize + 2),
           paint: Paint()..color = Colors.green,
+          anchor: Anchor.center,
         );
 
   /// The size of the all tiles on the game.
