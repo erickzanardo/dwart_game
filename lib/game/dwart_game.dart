@@ -21,7 +21,7 @@ class TileInfo {
 }
 
 class DwartGame extends FlameGame
-    with PanDetector, ScrollDetector, TapDetector {
+    with PanDetector, ScrollDetector, HasTappables {
   DwartGame() {
     images.prefix = '';
   }
@@ -42,8 +42,8 @@ class DwartGame extends FlameGame
           null,
           null,
           null,
-          DwarfEntity(),
-          DwarfEntity(),
+          null,
+          null,
           null,
           null,
         ],
@@ -101,6 +101,10 @@ class DwartGame extends FlameGame
 
     await add(world);
 
+    world
+      ..addAt(7, 0, DwarfEntity())
+      ..addAt(8, 0, DwarfEntity());
+
     camera
       ..zoom = 0.4
       ..snapTo((world.mapSize / 2) - (size / 2));
@@ -118,21 +122,25 @@ class DwartGame extends FlameGame
   }
 
   @override
-  void onTapUp(TapUpInfo info) {
-    final x = (info.eventPosition.game.x / Tile.tileSize).floor();
-    final y = (info.eventPosition.game.y / Tile.tileSize).floor();
+  void onTapUp(int pointerId, TapUpInfo info) {
+    super.onTapUp(pointerId, info);
 
-    final world = children.whereType<World>().single;
-    final mapSize = world.mapTitleSize;
+    if (!info.handled) {
+      final x = (info.eventPosition.game.x / Tile.tileSize).floor();
+      final y = (info.eventPosition.game.y / Tile.tileSize).floor();
 
-    if (x < mapSize.x && y < mapSize.y) {
-      tilesAction.add(
-        TileInfo(
-          x: x,
-          y: y,
-          component: world.map[y][x],
-        ),
-      );
+      final world = children.whereType<World>().single;
+      final mapSize = world.mapTitleSize;
+
+      if (x < mapSize.x && y < mapSize.y) {
+        tilesAction.add(
+          TileInfo(
+            x: x,
+            y: y,
+            component: world.map[y][x],
+          ),
+        );
+      }
     }
   }
 }
