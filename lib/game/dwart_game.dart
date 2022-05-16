@@ -3,14 +3,30 @@ import 'dart:math';
 import 'package:dwart_components/dwart_components.dart';
 import 'package:dwart_game/game/entities/entities.dart';
 import 'package:dwart_game/game/game.dart';
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
+import 'package:rxdart/rxdart.dart';
+
+class TileInfo {
+  TileInfo({
+    required this.x,
+    required this.y,
+    required this.component,
+  });
+
+  final int x;
+  final int y;
+  final Component? component;
+}
 
 class DwartGame extends FlameGame
-    with PanDetector, ScrollDetector, HasTappables {
+    with PanDetector, ScrollDetector, TapDetector {
   DwartGame() {
     images.prefix = '';
   }
+
+  BehaviorSubject<TileInfo> tilesAction = BehaviorSubject();
 
   @override
   Future<void> onLoad() async {
@@ -18,7 +34,19 @@ class DwartGame extends FlameGame
 
     final world = World(
       map: [
-        [null, null, null, null, null, null, null, null, null, null, null],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          DwarfEntity(),
+          DwarfEntity(),
+          null,
+          null,
+        ],
         [
           Tile(),
           Stairs(),
@@ -69,13 +97,13 @@ class DwartGame extends FlameGame
           Tile(),
         ],
       ],
-    )..position = size / 2;
+    );
 
     await add(world);
 
-    world.addAt(5, 0, DwarfEntity());
-
-    camera.zoom = 0.5;
+    camera
+      ..zoom = 0.4
+      ..snapTo((world.mapSize / 2) - (size / 2));
   }
 
   @override
@@ -87,5 +115,24 @@ class DwartGame extends FlameGame
   void onScroll(PointerScrollInfo info) {
     final value = camera.zoom + info.scrollDelta.game.y / 1000;
     camera.zoom = min(2, max(0.2, value));
+  }
+
+  @override
+  void onTapUp(TapUpInfo info) {
+    final x = (info.eventPosition.game.x / Tile.tileSize).floor();
+    final y = (info.eventPosition.game.y / Tile.tileSize).floor();
+
+    final world = children.whereType<World>().single;
+    final mapSize = world.mapTitleSize;
+
+    if (x < mapSize.x && y < mapSize.y) {
+      tilesAction.add(
+        TileInfo(
+          x: x,
+          y: y,
+          component: world.map[y][x],
+        ),
+      );
+    }
   }
 }

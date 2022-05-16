@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class World extends PositionComponent {
   World({
     required this.map,
-  }) : super(anchor: Anchor.center);
+  });
 
   final List<List<PositionComponent?>> map;
   late final List<List<bool>> path;
