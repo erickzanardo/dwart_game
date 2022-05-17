@@ -126,8 +126,12 @@ class DwartGame extends FlameGame
     super.onTapUp(pointerId, info);
 
     if (!info.handled) {
-      final x = (info.eventPosition.game.x / Tile.tileSize).floor();
-      final y = (info.eventPosition.game.y / Tile.tileSize).floor();
+      final x =
+          ((info.eventPosition.game.x + Tile.tileSize / 2) / Tile.tileSize)
+              .floor();
+      final y =
+          ((info.eventPosition.game.y + Tile.tileSize / 2) / Tile.tileSize)
+              .floor();
 
       final world = children.whereType<World>().single;
       final mapSize = world.mapTitleSize;
